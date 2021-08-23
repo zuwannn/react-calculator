@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { calculate } from './store/actions/calculate'
+import { 
+        calculate
+        
+        } from './store/actions/calculate'
 import Calculator from './components/calculator'
 import * as fromCalculator from './store'
 import './App.css';
 
 export class App extends Component{
+
+  componentDidMount() {
+    console.log("mounted calculator!")
+  }
+
   render () {
     return(
       <div className='calculator--container'>
