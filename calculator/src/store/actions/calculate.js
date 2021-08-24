@@ -1,6 +1,26 @@
-export const calculate = (expression) => {
+import * as types from '../types'
+
+export const calculate = (key) => {
     return {
         type: 'SET_EXPRESSION',
-        payload: expression
+        payload: key
+    }
+}
+
+export const clear = () => {
+    return {
+        type: types.CLEAR_EXPRESSION
+    }
+}
+
+export const deleteLastEntry = () => {
+    return {
+        type: types.DELETE_LAST_EXPRESSION_ENTRY
+    }
+}
+
+export const evaluateExpression = () => {
+    return {
+        type: types.EVALUATE_EXPRESSION
     }
 }
