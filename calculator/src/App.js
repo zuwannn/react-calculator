@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { 
-        calculate
-        
+        calculate,
+        deleteLastEntry,
+        clear,
+        evaluateExpression
         } from './store/actions/calculate'
 import Calculator from './components/calculator'
 import * as fromCalculator from './store'
@@ -11,7 +13,7 @@ import './App.css';
 export class App extends Component{
 
   componentDidMount() {
-    console.log("mounted calculator!")
+    console.log('mounted calculator!')
   }
 
   render () {
@@ -35,6 +37,15 @@ const mapDispatchToProps = (dispatch) => {
   return{
     calculate: (buttonKey) => {
       dispatch(calculate(buttonKey))
+    },
+    delete: () => {
+      dispatch(deleteLastEntry())
+    },
+    clear: () => {
+      dispatch(clear())
+    },
+    evaluate: () => {
+      dispatch(evaluateExpression())
     }
   }
 }
