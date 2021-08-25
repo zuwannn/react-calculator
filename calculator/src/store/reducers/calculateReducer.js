@@ -36,22 +36,23 @@ export default (state = initialState, action) => {
                 expression,
                 total: calculate(expression) || state.total
             }
+                 
         case types.CLEAR_EXPRESSION:
             return {
                 ...state, 
-                expression: exp,
-                total: calculate(exp)
+                expression: '',
+                total: calculate('')
             }
 
-        case types.DELETE_LAST_EXPRESSION_ENTRY:
-            let exp = state.expression
-            exp = exp.split('').slice(0, exp.length - 1).join('')
-            return {
-                ...state,
-                expression: exp,
-                total: calculate(exp)
-            }
-            
+         case types.DELETE_LAST_EXPRESSION_ENTRY:
+                    let exp = state.expression
+                    exp = exp.split('').slice(0, exp.length - 1).join('')
+                    return {
+                        ...state,
+                        expression: exp,
+                        total: calculate(exp)
+                    }
+
         case types.EVALUATE_EXPRESSION:
             return {
                 ...state,
